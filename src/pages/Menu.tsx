@@ -1,0 +1,773 @@
+
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { useCart } from '@/contexts/CartContext';
+import { ShoppingCart, UtensilsCrossed } from 'lucide-react';
+import { toast } from 'sonner';
+import MealPlanSelector from '@/components/MealPlanSelector';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+
+interface MenuItem {
+  id: number;
+  name: string;
+  description: string;
+  price: string;
+  image: string;
+  category: string;
+}
+
+const Menu = () => {
+  const { addToCart } = useCart();
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [showMealPlanSelector, setShowMealPlanSelector] = useState(false);
+
+  const menuItems: MenuItem[] = [
+    // Breakfast Items
+    {
+      id: 1,
+      name: 'Chicken Quesadilla with Basil and Cheese',
+      description: 'Creamy, cheesy, and rich with a smooth finish.',
+      price: '23',
+      image: '/img/all img/menus/m1.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 2,
+      name: 'Egg Quesadilla with Cheese',
+      description: 'Tangy tomato blend with herbs and seasoning.',
+      price: '18',
+            image: '/img/all img/menus/eq.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 3,
+      name: 'Omelette',
+      description: 'Fresh basil pesto with a creamy twist.',
+      price: '11',
+      image: '/img/all img/menus/m2.jpg',
+      category: 'breakfast'
+    },
+
+    // Lunch Items
+    {
+      id: 4,
+      name: 'Omelette Whites ',
+      description: 'Slow-cooked minced beef in classic Italian sauce.',
+      price: '11',
+     image: '/img/all img/menus/ow.jpg',
+     category: 'breakfast'
+    },
+    {
+      id: 5,
+      name: 'Eggs Benedict',
+      description: 'White and red sauces blended for bold flavor.',
+      price: '11',
+           image: '/img/all img/menus/eb.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 6,
+      name: 'Halloumi Sandwich',
+      description: 'Our chef\'s special recipe with signature spices.',
+      price: '14',
+         image: '/img/all img/menus/hs.jpg',
+       category: 'breakfast'
+    },
+    {
+      id: 7,
+      name: 'Wraps (-Chicken)',
+      description: 'A surprise mix of sauces and bold flavors.',
+      price: '21',
+          image: '/img/all img/menus/wc.jpg',
+       category: 'breakfast'
+    },
+
+    // Dinner Items
+    {
+      id: 8,
+      name: 'Beef Shawarma',
+      description: 'Crispy pepperoni layered over cheesy perfection.',
+      price: '26',
+           image: '/img/all img/menus/bs.jpg',
+     category: 'breakfast'
+    },
+    {
+      id: 9,
+      name: 'Chicken with Balsamic Vinaigrette',
+      description: 'Classic tomato, mozzarella, and fresh basil combo.',
+      price: '23',
+           image: '/img/all img/menus/cbl.jpg',
+     category: 'breakfast'
+    },
+    {
+      id: 10,
+      name: 'Egg ',
+      description: 'Creamy Alfredo base topped with juicy toppings.',
+      price: '18',
+            image: '/img/all img/menus/Egg.jpg',
+     category: 'breakfast'
+    },
+    {
+      id: 11,
+      name: 'Turkey',
+      description: 'Loaded with spicy beef and bold flavors.',
+      price: '21',
+            image: '/img/all img/menus/trk.png',
+      category: 'breakfast'
+    },
+    {
+      id: 12,
+      name: 'Tuna',
+      description: 'Our house favorite with a secret twist.',
+      price: '21',
+           image: '/img/all img/menus/tuna.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 13,
+      name: 'Chicken',
+      description: 'Grilled chicken with a punch of garlic.',
+      price: '23',
+           image: '/img/all img/menus/chkn.jpg',
+     category: 'breakfast'
+    },
+    {
+      id: 14,
+      name: 'Grilled Beef',
+      description: 'A colorful mix of seasoned, fresh vegetables.',
+      price: '30',
+           image: '/img/all img/menus/gb.jpg',
+     category: 'breakfast'
+    },
+
+    // Snack Items
+    {
+      id: 15,
+      name: 'Fish & Shrimp',
+      description: 'Grilled halloumi on crisp greens and veggies.',
+      price: '39',
+            image: '/img/all img/menus/fs.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 16,
+      name: 'Thai Shrimp ',
+      description: 'Olives, cherry tomatoes, herbs, and vinaigrette dressing.',
+      price: '39',
+          image: '/img/all img/menus/tsh.jpg',
+     category: 'breakfast'
+    },
+    {
+      id: 17,
+      name: 'Shrimp with BBQ Sauce',
+      description: 'Fresh arugula tossed with tangy dressing.',
+      price: '39',
+           image: '/img/all img/menus/sbbq.jpg',
+   category: 'breakfast'
+    },
+    {
+      id: 18,
+      name: 'Salmon Teriyaki ',
+      description: 'Seasonal vegetables with a light citrus dressing.',
+      price: '42',
+           image: '/img/all img/menus/st.jpg',
+    category: 'breakfast'
+    },
+    {
+      id: 19,
+      name: 'Salmon with Lemon Sauce Garlic',
+      description: 'Creamy malai chicken on a fresh salad bed.',
+      price: '42',
+           image: '/img/all img/menus/sls.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 20,
+      name: 'Grilled Salmon with Herbs',
+      description: 'Cheesy garlic toast topped with tender chicken.',
+      price: '42',
+           image: '/img/all img/menus/sh.jpg',
+    category: 'breakfast'
+    },
+    {
+      id: 21,
+      name: 'Grilled Fish with Lemon and Dill',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '27',
+           image: '/img/all img/menus/gf.jpg',
+     category: 'breakfast'
+    },
+
+
+    // salads
+    {
+      id: 23,
+      name: 'Quinoa Salad with Chicken ',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '19',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 24,
+      name: 'Caesar Salad ',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '19',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 25,
+      name: 'Arugula and Beetroot Salad',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 26,
+      name: 'Orange and Arugula Salad ',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 27,
+      name: 'Greek Salad',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '14',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 28,
+      name: 'Shrimp Salad',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '23',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 29,
+      name: 'Green Salad ',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '9',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 30,
+      name: 'Chicken and Oat Soup',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+
+
+    {
+      id: 31,
+      name: 'Chicken and Corn',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+
+
+    {
+      id: 32,
+      name: 'Chicken with Mushrooms',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 33,
+      name: 'Mushroom Soup',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 34,
+      name: 'Broccoli Soup',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 35,
+      name: 'Zucchini and Mint Soup',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+    {
+      id: 36,
+      name: 'Lentils',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'salads'
+    },
+
+    
+
+
+    // salads
+
+
+    // pudding
+     {
+      id: 37,
+      name: 'Chia Seeds',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'pudding'
+    },
+     {
+      id: 38,
+      name: 'Vanilla Chia Pudding',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'pudding'
+    },
+     {
+      id: 39,
+      name: 'Chia Pudding with Peanut Butter and Jelly',
+      description: 'Chia Pudding with Peanut Butter and Jelly',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'pudding'
+    },
+     {
+      id: 40,
+      name: 'Chocolate Chia Pudding',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'pudding'
+    },
+     {
+      id: 41,
+      name: 'Blueberry',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'pudding'
+    },
+     {
+      id: 42,
+      name: 'Strawberries and Cream',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'pudding'
+    },
+     {
+      id: 43,
+      name: 'Chia Pudding with Split Banana',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+           image: '/img/menu/21.webp',
+     category: 'pudding'
+    },
+    // pudding
+
+
+    // juice
+
+      {
+      id: 44,
+      name: 'Pineapple & Peach',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+      image: '/img/menu/21.webp',
+      category: 'juice'
+      },
+      {
+      id: 45,
+      name: 'Apple & Pineapple',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+      image: '/img/menu/21.webp',
+      category: 'juice'
+      },
+      {
+      id: 46,
+      name: 'Kiwi & Mango',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+      image: '/img/menu/21.webp',
+      category: 'juice'
+      },
+      {
+      id: 47,
+      name: 'Orange',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+      image: '/img/menu/21.webp',
+      category: 'juice'
+      },
+      {
+      id: 49,
+      name: 'Ginger',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+      image: '/img/menu/21.webp',
+      category: 'juice'
+      },
+      {
+      id: 50,
+      name: ' Pineapple',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+      image: '/img/menu/21.webp',
+      category: 'juice'
+      },
+      {
+      id: 51,
+      name: 'Beetroot and Apple',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+      image: '/img/menu/21.webp',
+      category: 'juice'
+      },
+      {
+      id: 52,
+      name: 'Carrot, Orange, and Ginger',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+      image: '/img/menu/21.webp',
+      category: 'juice'
+      },
+      {
+      id: 53,
+      name: 'Orange with Cranberry',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '13',
+      image: '/img/menu/21.webp',
+      category: 'juice'
+      },
+    // juice
+
+
+    // beef
+     {
+      id: 54,
+      name: 'Sirloin Steak ',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'beef'
+      },
+     {
+      id: 55,
+      name: 'Sweet & Spicy Beef ',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'beef'
+      },
+     {
+      id: 56,
+      name: 'Beef Piccata ',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'beef'
+      },
+     {
+      id: 57,
+      name: 'Beef Stroganoff ',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'beef'
+      },
+     {
+      id: 58,
+      name: 'Beef Fajitas',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'beef'
+      },
+    // beef
+
+
+    // rice
+
+      {
+      id: 59,
+      name: 'White Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 60,
+      name: 'Brown Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 61,
+      name: 'Steamed Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 62,
+      name: 'Chinese Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 63,
+      name: 'Cinnamon Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 64,
+      name: 'Curry Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 65,
+      name: 'Saffron Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 66,
+      name: 'Vermicelli Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 67,
+      name: 'Egyptian Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 68,
+      name: 'Beetroot Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 69,
+      name: 'Mixed Vegetable Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+      {
+      id: 70,
+      name: 'Egg Rice',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'rice'
+      },
+     
+    // rice
+
+    // pasta
+     {
+      id: 70,
+      name: 'Mixed Sauce Pasta',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'pasta'
+      },
+     {
+      id: 72,
+      name: 'Pasta and Pesto',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'pasta'
+      },
+     {
+      id: 73,
+      name: 'Pasta with Tomato Saucе',
+      description: 'Crispy bread topped with gooey garlic cheese.',
+      price: '38',
+      image: '/img/menu/21.webp',
+      category: 'pasta'
+      },
+    // pasta
+  ];
+
+  const categories = [
+    { id: 'all', name: 'All Items', icon: UtensilsCrossed },
+    { id: 'breakfast', name: 'Breakfast', icon: UtensilsCrossed },
+    { id: 'lunch', name: 'Lunch', icon: UtensilsCrossed },
+    { id: 'dinner', name: 'Dinner', icon: UtensilsCrossed },
+    { id: 'snack', name: 'Snacks', icon: UtensilsCrossed },
+    { id: 'salads', name: 'Salads', icon: UtensilsCrossed },
+
+
+    { id: 'burger', name: 'Beef Burger', icon: UtensilsCrossed },
+    { id: 'pizza', name: 'Pizza', icon: UtensilsCrossed },
+    { id: 'pasta', name: 'Pasta', icon: UtensilsCrossed },
+    { id: 'rice', name: 'Rice', icon: UtensilsCrossed },
+    { id: 'beef', name: 'Beef Dishes', icon: UtensilsCrossed },
+    { id: 'juice', name: 'Juice', icon: UtensilsCrossed },
+    { id: 'pudding', name: 'Pudding', icon: UtensilsCrossed }
+  ];
+
+  const filteredItems = selectedCategory === 'all' 
+    ? menuItems 
+    : menuItems.filter(item => item.category === selectedCategory);
+
+  const handleAddToCart = (item: MenuItem) => {
+    addToCart({
+      id: item.id,
+      name: item.name,
+      image: item.image,
+      price: `${item.price} SAR`,
+      category: item.category
+    });
+    toast.success(`${item.name} added to cart!`);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Menu</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Discover our delicious selection of fresh, healthy meals prepared with the finest ingredients
+          </p>
+          
+          {/* Order Subscription Button */}
+          <div className="mt-8">
+            <Dialog open={showMealPlanSelector} onOpenChange={setShowMealPlanSelector}>
+              <DialogTrigger asChild>
+                <Button className="bg-green-600 hover:bg-green-700 text-lg px-8 py-3">
+                  <UtensilsCrossed className="h-5 w-5 mr-2" />
+                  Create Subscription Order
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>Create Your Meal Plan</DialogTitle>
+                </DialogHeader>
+                <MealPlanSelector onComplete={() => setShowMealPlanSelector(false)} />
+              </DialogContent>
+            </Dialog>
+          </div>
+        </div>
+
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
+          {categories.map((category) => {
+            const IconComponent = category.icon;
+            return (
+              <Button
+                key={category.id}
+                variant={selectedCategory === category.id ? 'default' : 'outline'}
+                onClick={() => setSelectedCategory(category.id)}
+                className="flex items-center space-x-2"
+              >
+                <IconComponent className="h-4 w-4" />
+                <span>{category.name}</span>
+              </Button>
+            );
+          })}
+        </div>
+
+        {/* Menu Items Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+  {filteredItems.map((item) => (
+    <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-full">
+      {/* Image Section */}
+      <div className="aspect-w-16 aspect-h-9 flex-shrink-0">
+        <img
+          src={item.image}
+          alt={item.name}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Content Section - grows to push button down */}
+      <div className="flex-grow p-3 sm:p-4">
+        <CardHeader className="p-0">
+          <div className="flex justify-between items-start gap-2">
+            <div>
+              <CardTitle className="text-sm sm:text-base md:text-lg">{item.name}</CardTitle>
+              <Badge variant="secondary" className="mt-1 text-xs sm:text-sm capitalize">
+                {item.category}
+              </Badge>
+            </div>
+            <span className="text-sm sm:text-base md:text-xl font-bold text-green-600 whitespace-nowrap">
+              {item.price} SAR
+            </span>
+          </div>
+        </CardHeader>
+      </div>
+
+      {/* Button Section - fixed at bottom */}
+      <CardContent className="p-3 sm:p-4 pt-0">
+        <Button
+          onClick={() => handleAddToCart(item)}
+          className="w-full bg-green-600 hover:bg-green-700 text-xs sm:text-sm h-8 sm:h-9 md:h-10"
+        >
+          <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+          Add to Cart
+        </Button>
+      </CardContent>
+    </Card>
+  ))}
+</div>
+
+        {filteredItems.length === 0 && (
+          <div className="text-center py-12">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">No items found</h3>
+            <p className="text-gray-600">Try selecting a different category</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Menu;
