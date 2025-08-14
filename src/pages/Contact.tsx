@@ -84,7 +84,7 @@ const Contact = () => {
               </svg>
               <div>
                 <h3 className="text-lg font-semibold text-[#01461F] dark:text-white">Phone</h3>
-                <p className="text-gray-600 dark:text-gray-300">+91&nbsp;98765&nbsp;43210</p>
+                <p className="text-gray-600 dark:text-gray-300">+966 133479961 </p>
               </div>
             </div>
 
@@ -105,7 +105,7 @@ const Contact = () => {
               </svg>
               <div>
                 <h3 className="text-lg font-semibold text-[#01461F] dark:text-white">Email</h3>
-                <p className="text-gray-600 dark:text-gray-300">contact@pulsefoodflow.com</p>
+                <p className="text-gray-600 dark:text-gray-300">hello@pulsefood.com</p>
               </div>
             </div>
 
@@ -128,14 +128,14 @@ const Contact = () => {
               <div>
                 <h3 className="text-lg font-semibold text-[#01461F] dark:text-white">Address</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  123, Pulse Street, Mangalore, Karnataka&nbsp;–&nbsp;575001
+                   Fanatheer, Jubail, KSA
                 </p>
               </div>
             </div>
 
             <iframe
               title="Pulse Food Flow Location"
-              src="https://maps.google.com/maps?q=12.9204,74.8560&z=14&amp;output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56803.66235860248!2d49.56048489999999!3d27.149087449999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e350fd6c154fb91%3A0xf138a1d729b74b29!2sFanateer%2C%20Al%20Jubail%20Saudi%20Arabia!5e0!3m2!1sen!2sin!4v1755162499607!5m2!1sen!2sin"
               className="rounded-2xl h-64 w-full border-none shadow-lg dark:shadow-[#01461F]/40"
               loading="lazy"
             ></iframe>

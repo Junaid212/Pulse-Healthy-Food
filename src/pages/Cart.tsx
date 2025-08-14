@@ -11,8 +11,6 @@ import { useToast } from '@/hooks/use-toast';
 const Cart = () => {
   const { items, updateQuantity, removeFromCart, clearCart, total } = useCart();
   const [isCreatingSubscription, setIsCreatingSubscription] = useState(false);
-  const [showWhatsAppForm, setShowWhatsAppForm] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [isSending, setIsSending] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -49,12 +47,12 @@ const Cart = () => {
     return details;
   };
 
-  // Send order via Interakt API
+  // Send order via WhatsApp
   const sendWhatsAppOrder = async () => {
-    if (!phoneNumber) {
+    if (items.length === 0) {
       toast({
-        title: "Phone number required",
-        description: "Please enter your WhatsApp number",
+        title: "Cart is empty",
+        description: "Add some items to your cart first",
         variant: "destructive"
       });
       return;
@@ -63,8 +61,8 @@ const Cart = () => {
     setIsSending(true);
 
     try {
-      // Format phone number (remove non-digits and add +)
-      const formattedPhone = `+${phoneNumber.replace(/\D/g, '')}`;
+      // Fixed WhatsApp number
+      const fixedPhoneNumber = "+966 133479961 ";
       
       // Create order number
       const orderNumber = `#${Math.floor(1000 + Math.random() * 9000)}`;
@@ -74,43 +72,23 @@ const Cart = () => {
         item => `• ${item.name} x${item.quantity} - ${item.price}`
       ).join('\n');
 
-      // Interakt API payload
-      const payload = {
-        to: formattedPhone,
-        template: {
-          name: "order_confirmation",
-          languageCode: "en",
-          bodyValues: {
-            order_number: orderNumber,
-            order_details: orderItemsText,
-            total_amount: total.toFixed(2)
-          }
-        }
-      };
-
-      // Call Interakt API (in production, this should go through your backend)
-      const response = await fetch('https://api.interakt.ai/v1/public/message/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer YOUR_INTERAKT_API_KEY` // Replace with your actual key
-        },
-        body: JSON.stringify(payload)
-      });
-
-      if (!response.ok) throw new Error('Failed to send');
+      // Prepare WhatsApp message
+      const whatsappMessage = `New Order ${orderNumber}\n\n${orderItemsText}\n\nTotal: ${total.toFixed(2)} SAR`;
+      
+      // Create WhatsApp link
+      const whatsappUrl = `https://wa.me/${fixedPhoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
+      
+      // Open WhatsApp in new tab
+      window.open(whatsappUrl, '_blank');
 
       toast({
-        title: "Order Confirmed!",
-        description: "We've sent the details to your WhatsApp"
+        title: "WhatsApp Opened!",
+        description: "Please confirm your order in WhatsApp",
       });
       
-      clearCart();
-      setShowWhatsAppForm(false);
-      setPhoneNumber('');
     } catch (error) {
       toast({
-        title: "Failed to send order",
+        title: "Failed to open WhatsApp",
         description: "Please try again later",
         variant: "destructive"
       });
@@ -140,111 +118,118 @@ const Cart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-4 md:py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex items-center mb-8">
-          <Button variant="ghost" onClick={() => navigate(-1)} className="mr-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center mb-6 sm:mb-8 gap-4">
+          <Button variant="ghost" onClick={() => navigate(-1)} className="self-start sm:self-center">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
+            <span className="sr-only sm:not-sr-only">Back</span>
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Your Cart</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Your Cart</h1>
             <p className="text-gray-600">{items.length} item{items.length !== 1 ? 's' : ''} in your cart</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Cart Items */}
-          <div className="lg:col-span-2 space-y-4">
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* Cart Items - Full width on mobile, 2/3 on desktop */}
+          <div className="w-full lg:w-2/3 space-y-3 sm:space-y-4">
             {items.map((item) => (
               <Card key={item.id} className="overflow-hidden">
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-4">
+                <CardContent className="p-3 sm:p-4">
+                  <div className="flex items-start sm:items-center gap-3 sm:gap-4 flex-col sm:flex-row">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-16 h-16 object-cover rounded-lg"
+                      className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded-lg"
                     />
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900">{item.name}</h3>
-                      <p className="text-sm text-gray-600 capitalize">{item.category}</p>
-                      <p className="font-bold text-green-600">{item.price}</p>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-gray-900 truncate">{item.name}</h3>
+                      <p className="text-xs sm:text-sm text-gray-600 capitalize">{item.category}</p>
+                      <p className="font-bold text-green-600 text-sm sm:text-base">{item.price}</p>
                     </div>
                     
                     {/* Quantity Controls */}
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center gap-1 sm:gap-2 w-full sm:w-auto justify-between">
+                      <div className="flex items-center gap-1 sm:gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          className="h-8 w-8 p-0"
+                        >
+                          <Minus className="h-3 w-3 sm:h-4 sm:w-4" />
+                        </Button>
+                        <Input
+                          type="number"
+                          value={item.quantity}
+                          onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
+                          className="w-12 sm:w-16 text-center h-8"
+                          min="1"
+                        />
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          className="h-8 w-8 p-0"
+                        >
+                          <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
+                        </Button>
+                      </div>
+                      
+                      {/* Remove Button */}
                       <Button
-                        variant="outline"
+                        variant="ghost"
                         size="sm"
-                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        onClick={() => removeFromCart(item.id)}
+                        className="text-red-600 hover:text-red-700 h-8 w-8 p-0"
                       >
-                        <Minus className="h-4 w-4" />
-                      </Button>
-                      <Input
-                        type="number"
-                        value={item.quantity}
-                        onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
-                        className="w-16 text-center"
-                        min="1"
-                      />
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      >
-                        <Plus className="h-4 w-4" />
+                        <Trash2 className="h-3 w-3 sm:h-4 sm:w-4" />
                       </Button>
                     </div>
-                    
-                    {/* Remove Button */}
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => removeFromCart(item.id)}
-                      className="text-red-600 hover:text-red-700"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          {/* Order Summary */}
-          <div className="lg:col-span-1">
-            <Card className="sticky top-24">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
+          {/* Order Summary - Full width on mobile, 1/3 on desktop */}
+          <div className="w-full lg:w-1/3">
+            <Card className="sticky top-20 sm:top-24">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="text-lg font-semibold mb-3 sm:mb-4">Order Summary</h3>
                 
-                <div className="space-y-2 mb-4">
+                <div className="space-y-2 mb-3 sm:mb-4 max-h-60 overflow-y-auto">
                   {items.map((item) => (
-                    <div key={item.id} className="flex justify-between text-sm">
-                      <span>{item.name} x{item.quantity}</span>
+                    <div key={item.id} className="flex justify-between text-xs sm:text-sm">
+                      <span className="truncate max-w-[120px] sm:max-w-[160px]">
+                        {item.name} x{item.quantity}
+                      </span>
                       <span>{parseFloat(item.price.replace(' SAR', '')) * item.quantity} SAR</span>
                     </div>
                   ))}
                 </div>
                 
-                <div className="border-t pt-4 mb-6">
-                  <div className="flex justify-between font-bold text-lg">
+                <div className="border-t pt-3 sm:pt-4 mb-4 sm:mb-6">
+                  <div className="flex justify-between font-bold text-base sm:text-lg">
                     <span>Total</span>
                     <span className="text-green-600">{total.toFixed(2)} SAR</span>
                   </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <Button 
-                    className="w-full bg-green-600 hover:bg-green-700"
-                    onClick={() => setShowWhatsAppForm(true)}
+                    className="w-full bg-green-600 hover:bg-green-700 text-sm sm:text-base"
+                    onClick={sendWhatsAppOrder}
+                    disabled={isSending}
                   >
-                    Proceed to Checkout
+                    {isSending ? 'Opening WhatsApp...' : 'Proceed to Checkout'}
                   </Button>
                   
                   <Button
                     variant="outline"
-                    className="w-full"
+                    className="w-full text-sm sm:text-base"
                     onClick={handleCreateSubscription}
                     disabled={isCreatingSubscription}
                   >
@@ -253,7 +238,7 @@ const Cart = () => {
                   
                   <Button
                     variant="ghost"
-                    className="w-full text-red-600 hover:text-red-700"
+                    className="w-full text-red-600 hover:text-red-700 text-sm sm:text-base"
                     onClick={clearCart}
                   >
                     Clear Cart
@@ -264,54 +249,8 @@ const Cart = () => {
           </div>
         </div>
       </div>
-
-      {/* WhatsApp Order Dialog */}
-      <Dialog open={showWhatsAppForm} onOpenChange={() => setShowWhatsAppForm(false)}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Confirm Order via WhatsApp</DialogTitle>
-          </DialogHeader>
-          
-          <div className="space-y-4 py-4">
-            <div>
-              <label className="block text-sm font-medium mb-1">
-                WhatsApp Number
-              </label>
-              <Input
-                type="tel"
-                placeholder="+966501234567"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-              />
-              <p className="text-xs text-gray-500 mt-1">
-                Include country code (e.g., +966 for Saudi Arabia)
-              </p>
-            </div>
-            
-            <div className="border rounded-lg p-4 bg-gray-50">
-              <h4 className="font-medium mb-2">Order Summary:</h4>
-              <pre className="text-sm whitespace-pre-wrap">{generateOrderDetails()}</pre>
-            </div>
-            
-            <div className="flex justify-end space-x-2">
-              <Button 
-                variant="outline" 
-                onClick={() => setShowWhatsAppForm(false)}
-              >
-                Cancel
-              </Button>
-              <Button 
-                onClick={sendWhatsAppOrder}
-                disabled={isSending}
-              >
-                {isSending ? 'Sending...' : 'Confirm Order'}
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
-  );
+  )
 };
 
 export default Cart;
