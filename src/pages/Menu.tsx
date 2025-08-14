@@ -30,7 +30,7 @@ const Menu = () => {
       name: 'Chicken Quesadilla with Basil and Cheese',
       description: 'Creamy, cheesy, and rich with a smooth finish.',
       price: '23',
-      image: '/img/all img/menus/m1.jpg',
+      image: '/img/all img/menus/m1.webp',
       category: 'breakfast'
     },
     {
@@ -38,7 +38,7 @@ const Menu = () => {
       name: 'Egg Quesadilla with Cheese',
       description: 'Tangy tomato blend with herbs and seasoning.',
       price: '18',
-            image: '/img/all img/menus/eq.jpg',
+            image: '/img/all img/menus/eq.webp',
       category: 'breakfast'
     },
     {
@@ -46,7 +46,7 @@ const Menu = () => {
       name: 'Omelette',
       description: 'Fresh basil pesto with a creamy twist.',
       price: '11',
-      image: '/img/all img/menus/m2.jpg',
+      image: '/img/all img/menus/m2.webp',
       category: 'breakfast'
     },
 
@@ -56,7 +56,7 @@ const Menu = () => {
       name: 'Omelette Whites ',
       description: 'Slow-cooked minced beef in classic Italian sauce.',
       price: '11',
-     image: '/img/all img/menus/ow.jpg',
+     image: '/img/all img/menus/ow.webp',
      category: 'breakfast'
     },
     {
@@ -64,7 +64,7 @@ const Menu = () => {
       name: 'Eggs Benedict',
       description: 'White and red sauces blended for bold flavor.',
       price: '11',
-           image: '/img/all img/menus/eb.jpg',
+           image: '/img/all img/menus/eb.webp',
       category: 'breakfast'
     },
     {
@@ -72,7 +72,7 @@ const Menu = () => {
       name: 'Halloumi Sandwich',
       description: 'Our chef\'s special recipe with signature spices.',
       price: '14',
-         image: '/img/all img/menus/hs.jpg',
+         image: '/img/all img/menus/hs.webp',
        category: 'breakfast'
     },
     {
@@ -80,7 +80,7 @@ const Menu = () => {
       name: 'Wraps (-Chicken)',
       description: 'A surprise mix of sauces and bold flavors.',
       price: '21',
-          image: '/img/all img/menus/wc.jpg',
+          image: '/img/all img/menus/wc.webp',
        category: 'breakfast'
     },
 
@@ -90,7 +90,7 @@ const Menu = () => {
       name: 'Beef Shawarma',
       description: 'Crispy pepperoni layered over cheesy perfection.',
       price: '26',
-           image: '/img/all img/menus/bs.jpg',
+           image: '/img/all img/menus/bs.webp',
      category: 'breakfast'
     },
     {
@@ -98,7 +98,7 @@ const Menu = () => {
       name: 'Chicken with Balsamic Vinaigrette',
       description: 'Classic tomato, mozzarella, and fresh basil combo.',
       price: '23',
-           image: '/img/all img/menus/cbl.jpg',
+           image: '/img/all img/menus/cbl.webp',
      category: 'breakfast'
     },
     {
@@ -106,7 +106,7 @@ const Menu = () => {
       name: 'Egg ',
       description: 'Creamy Alfredo base topped with juicy toppings.',
       price: '18',
-            image: '/img/all img/menus/Egg.jpg',
+            image: '/img/all img/menus/Egg.webp',
      category: 'breakfast'
     },
     {
@@ -114,7 +114,7 @@ const Menu = () => {
       name: 'Turkey',
       description: 'Loaded with spicy beef and bold flavors.',
       price: '21',
-            image: '/img/all img/menus/trk.png',
+            image: '/img/all img/menus/trk.webp',
       category: 'breakfast'
     },
     {
@@ -122,7 +122,7 @@ const Menu = () => {
       name: 'Tuna',
       description: 'Our house favorite with a secret twist.',
       price: '21',
-           image: '/img/all img/menus/tuna.jpg',
+           image: '/img/all img/menus/tuna.webp',
       category: 'breakfast'
     },
     {
@@ -130,7 +130,7 @@ const Menu = () => {
       name: 'Chicken',
       description: 'Grilled chicken with a punch of garlic.',
       price: '23',
-           image: '/img/all img/menus/chkn.jpg',
+           image: '/img/all img/menus/chkn.webp',
      category: 'breakfast'
     },
     {
@@ -138,7 +138,7 @@ const Menu = () => {
       name: 'Grilled Beef',
       description: 'A colorful mix of seasoned, fresh vegetables.',
       price: '30',
-           image: '/img/all img/menus/gb.jpg',
+           image: '/img/all img/menus/gb.webp',
      category: 'breakfast'
     },
 
@@ -148,7 +148,7 @@ const Menu = () => {
       name: 'Fish & Shrimp',
       description: 'Grilled halloumi on crisp greens and veggies.',
       price: '39',
-            image: '/img/all img/menus/fs.jpg',
+            image: '/img/all img/menus/fs.webp',
       category: 'breakfast'
     },
     {
@@ -156,7 +156,7 @@ const Menu = () => {
       name: 'Thai Shrimp ',
       description: 'Olives, cherry tomatoes, herbs, and vinaigrette dressing.',
       price: '39',
-          image: '/img/all img/menus/tsh.jpg',
+          image: '/img/all img/menus/tsh.webp',
      category: 'breakfast'
     },
     {
@@ -164,7 +164,7 @@ const Menu = () => {
       name: 'Shrimp with BBQ Sauce',
       description: 'Fresh arugula tossed with tangy dressing.',
       price: '39',
-           image: '/img/all img/menus/sbbq.jpg',
+           image: '/img/all img/menus/sbbq.webp',
    category: 'breakfast'
     },
     {
@@ -172,7 +172,7 @@ const Menu = () => {
       name: 'Salmon Teriyaki ',
       description: 'Seasonal vegetables with a light citrus dressing.',
       price: '42',
-           image: '/img/all img/menus/st.jpg',
+           image: '/img/all img/menus/st.webp',
     category: 'breakfast'
     },
     {
@@ -180,7 +180,7 @@ const Menu = () => {
       name: 'Salmon with Lemon Sauce Garlic',
       description: 'Creamy malai chicken on a fresh salad bed.',
       price: '42',
-           image: '/img/all img/menus/sls.jpg',
+           image: '/img/all img/menus/sls.webp',
       category: 'breakfast'
     },
     {
@@ -188,7 +188,7 @@ const Menu = () => {
       name: 'Grilled Salmon with Herbs',
       description: 'Cheesy garlic toast topped with tender chicken.',
       price: '42',
-           image: '/img/all img/menus/sh.jpg',
+           image: '/img/all img/menus/sh.webp',
     category: 'breakfast'
     },
     {
@@ -196,7 +196,7 @@ const Menu = () => {
       name: 'Grilled Fish with Lemon and Dill',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '27',
-           image: '/img/all img/menus/gf.jpg',
+           image: '/img/all img/menus/gf.webp',
      category: 'breakfast'
     },
 
@@ -207,7 +207,7 @@ const Menu = () => {
       name: 'Quinoa Salad with Chicken ',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '19',
-           image: '/img/all img/menus/s7.jpg',
+           image: '/img/all img/menus/s7.webp',
      category: 'salads'
     },
     {
@@ -215,7 +215,7 @@ const Menu = () => {
       name: 'Caesar Salad ',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '19',
-           image: '/img/all img/menus/s2.jpg',
+           image: '/img/all img/menus/s2.webp',
      category: 'salads'
     },
     {
@@ -223,7 +223,7 @@ const Menu = () => {
       name: 'Arugula and Beetroot Salad',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/s6.jpg',
+           image: '/img/all img/menus/s6.webp',
      category: 'salads'
     },
     {
@@ -231,7 +231,7 @@ const Menu = () => {
       name: 'Orange and Arugula Salad ',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/s5.jpg',
+           image: '/img/all img/menus/s5.webp',
      category: 'salads'
     },
     {
@@ -239,7 +239,7 @@ const Menu = () => {
       name: 'Greek Salad',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '14',
-           image: '/img/all img/menus/s4.jpg',
+           image: '/img/all img/menus/s4.webp',
      category: 'salads'
     },
     {
@@ -247,7 +247,7 @@ const Menu = () => {
       name: 'Shrimp Salad',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '23',
-           image: '/img/all img/menus/s3.jpg',
+           image: '/img/all img/menus/s3.webp',
      category: 'salads'
     },
     {
@@ -255,7 +255,7 @@ const Menu = () => {
       name: 'Green Salad ',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '9',
-           image: '/img/all img/menus/s1.jpg',
+           image: '/img/all img/menus/s1.webp',
      category: 'salads'
     },
     {
@@ -263,7 +263,7 @@ const Menu = () => {
       name: 'Chicken and Oat Soup',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/s11.jpg',
+           image: '/img/all img/menus/s11.webp',
      category: 'salads'
     },
 
@@ -273,7 +273,7 @@ const Menu = () => {
       name: 'Chicken and Corn',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/s10.jpg',
+           image: '/img/all img/menus/s10.webp',
      category: 'salads'
     },
 
@@ -283,7 +283,7 @@ const Menu = () => {
       name: 'Chicken with Mushrooms',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/s9.jpg',
+           image: '/img/all img/menus/s9.webp',
      category: 'salads'
     },
     {
@@ -291,7 +291,7 @@ const Menu = () => {
       name: 'Mushroom Soup',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/s8.jpg',
+           image: '/img/all img/menus/s8.webp',
      category: 'salads'
     },
     {
@@ -299,7 +299,7 @@ const Menu = () => {
       name: 'Broccoli Soup',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/s12.jpg',
+           image: '/img/all img/menus/s12.webp',
      category: 'salads'
     },
     {
@@ -307,7 +307,7 @@ const Menu = () => {
       name: 'Zucchini and Mint Soup',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/s13.jpg',
+           image: '/img/all img/menus/s13.webp',
      category: 'salads'
     },
     {
@@ -315,7 +315,7 @@ const Menu = () => {
       name: 'Lentils',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/s14.jpg',
+           image: '/img/all img/menus/s14.webp',
      category: 'salads'
     },
 
@@ -331,7 +331,7 @@ const Menu = () => {
       name: 'Chia Seeds',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/b4.jpg',
+           image: '/img/all img/menus/b4.webp',
      category: 'pudding'
     },
      {
@@ -339,7 +339,7 @@ const Menu = () => {
       name: 'Vanilla Chia Pudding',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/p6.jpg',
+           image: '/img/all img/menus/p6.webp',
      category: 'pudding'
     },
      {
@@ -347,7 +347,7 @@ const Menu = () => {
       name: 'Chia Pudding with Peanut Butter and Jelly',
       description: 'Chia Pudding with Peanut Butter and Jelly',
       price: '13',
-           image: '/img/all img/menus/p5.jpg',
+           image: '/img/all img/menus/p5.webp',
      category: 'pudding'
     },
      {
@@ -355,7 +355,7 @@ const Menu = () => {
       name: 'Chocolate Chia Pudding',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/p4.jpg',
+           image: '/img/all img/menus/p4.webp',
      category: 'pudding'
     },
      {
@@ -363,7 +363,7 @@ const Menu = () => {
       name: 'Blueberry',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/p3.jpg',
+           image: '/img/all img/menus/p3.webp',
      category: 'pudding'
     },
      {
@@ -371,7 +371,7 @@ const Menu = () => {
       name: 'Strawberries and Cream',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/p2.jpg',
+           image: '/img/all img/menus/p2.webp',
      category: 'pudding'
     },
      {
@@ -379,7 +379,7 @@ const Menu = () => {
       name: 'Chia Pudding with Split Banana',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-           image: '/img/all img/menus/p1.jpg',
+           image: '/img/all img/menus/p1.webp',
      category: 'pudding'
     },
     // pudding
@@ -392,7 +392,7 @@ const Menu = () => {
       name: 'Pineapple & Peach',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-      image: '/img/all img/menus/j1.jpg',
+      image: '/img/all img/menus/jc4.webp',
       category: 'juice'
       },
       {
@@ -400,7 +400,7 @@ const Menu = () => {
       name: 'Apple & Pineapple',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-      image: '/img/all img/menus/j2.jpg',
+      image: '/img/all img/menus/jc3.webp',
       category: 'juice'
       },
       {
@@ -408,7 +408,7 @@ const Menu = () => {
       name: 'Kiwi & Mango',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-      image: '/img/all img/menus/j1.jpg',
+      image: '/img/all img/menus/jc3.webp',
       category: 'juice'
       },
       {
@@ -416,7 +416,7 @@ const Menu = () => {
       name: 'Orange',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-      image: '/img/all img/menus/j1.jpg',
+      image: '/img/all img/menus/jc4.webp',
       category: 'juice'
       },
       {
@@ -424,7 +424,7 @@ const Menu = () => {
       name: 'Ginger',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-      image: '/img/all img/menus/j2.jpg',
+      image: '/img/all img/menus/jc3.webp',
       category: 'juice'
       },
       {
@@ -432,7 +432,7 @@ const Menu = () => {
       name: ' Pineapple',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-      image: '/img/all img/menus/j4.jpg',
+      image: '/img/all img/menus/jc3.webp',
       category: 'juice'
       },
       {
@@ -440,7 +440,7 @@ const Menu = () => {
       name: 'Beetroot and Apple',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-      image: '/img/all img/menus/j3.jpg',
+      image: '/img/all img/menus/jc2.webp',
       category: 'juice'
       },
       {
@@ -448,7 +448,7 @@ const Menu = () => {
       name: 'Carrot, Orange, and Ginger',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-      image: '/img/all img/menus/j1.jpg',
+      image: '/img/all img/menus/jc4.webp',
       category: 'juice'
       },
       {
@@ -456,7 +456,7 @@ const Menu = () => {
       name: 'Orange with Cranberry',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '13',
-      image: '/img/all img/menus/j4.jpg',
+      image: '/img/all img/menus/jc4.webp',
       category: 'juice'
       },
     // juice
@@ -468,7 +468,7 @@ const Menu = () => {
       name: 'Sirloin Steak ',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/b3.jpg',
+      image: '/img/all img/menus/b3.webp',
       category: 'beef'
       },
      {
@@ -476,7 +476,7 @@ const Menu = () => {
       name: 'Sweet & Spicy Beef ',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/b2.jpg',
+      image: '/img/all img/menus/b2.webp',
       category: 'beef'
       },
      {
@@ -484,7 +484,7 @@ const Menu = () => {
       name: 'Beef Piccata ',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/b1.jpg',
+      image: '/img/all img/menus/b1.webp',
       category: 'beef'
       },
      {
@@ -492,7 +492,7 @@ const Menu = () => {
       name: 'Beef Stroganoff ',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/b6.jpg',
+      image: '/img/all img/menus/b6.webp',
       category: 'beef'
       },
      {
@@ -500,7 +500,7 @@ const Menu = () => {
       name: 'Beef Fajitas',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/b5.jpg',
+      image: '/img/all img/menus/b5.webp',
       category: 'beef'
       },
     // beef
@@ -513,7 +513,7 @@ const Menu = () => {
       name: 'White Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r1.jpg',
+      image: '/img/all img/menus/r1.webp',
       category: 'rice'
       },
       {
@@ -521,7 +521,7 @@ const Menu = () => {
       name: 'Brown Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r2.jpg',
+      image: '/img/all img/menus/r2.webp',
       category: 'rice'
       },
       {
@@ -529,7 +529,7 @@ const Menu = () => {
       name: 'Steamed Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r3.jpg',
+      image: '/img/all img/menus/r3.webp',
       category: 'rice'
       },
       {
@@ -537,7 +537,7 @@ const Menu = () => {
       name: 'Chinese Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r4.jpg',
+      image: '/img/all img/menus/r4.webp',
       category: 'rice'
       },
       {
@@ -545,7 +545,7 @@ const Menu = () => {
       name: 'Cinnamon Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r5.jpg',
+      image: '/img/all img/menus/r5.webp',
       category: 'rice'
       },
       {
@@ -553,7 +553,7 @@ const Menu = () => {
       name: 'Curry Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r6.jpg',
+      image: '/img/all img/menus/r6.webp',
       category: 'rice'
       },
       {
@@ -561,7 +561,7 @@ const Menu = () => {
       name: 'Saffron Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r7.jpg',
+      image: '/img/all img/menus/r7.webp',
       category: 'rice'
       },
       {
@@ -569,7 +569,7 @@ const Menu = () => {
       name: 'Vermicelli Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r8.jpg',
+      image: '/img/all img/menus/r8.webp',
       category: 'rice'
       },
       {
@@ -577,7 +577,7 @@ const Menu = () => {
       name: 'Egyptian Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/re.jpg',
+      image: '/img/all img/menus/re.webp',
       category: 'rice'
       },
       {
@@ -585,7 +585,7 @@ const Menu = () => {
       name: 'Beetroot Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r11.jpg',
+      image: '/img/all img/menus/r11.webp',
       category: 'rice'
       },
       {
@@ -593,7 +593,7 @@ const Menu = () => {
       name: 'Mixed Vegetable Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r10.jpg',
+      image: '/img/all img/menus/r10.webp',
       category: 'rice'
       },
       {
@@ -601,7 +601,7 @@ const Menu = () => {
       name: 'Egg Rice',
       description: 'Crispy bread topped with gooey garlic cheese.',
       price: '38',
-      image: '/img/all img/menus/r12.jpg',
+      image: '/img/all img/menus/r12.webp',
       category: 'rice'
       },
      
@@ -614,7 +614,7 @@ const Menu = () => {
           name: 'Mixed Sauce Pasta',
           description: 'Al dente pasta tossed in a rich blend of signature sauces for a perfect flavor balance.',
           price: '38',
-          image: '/img/all img/menus/pasta3.jpg',
+          image: '/img/all img/menus/pasta3.webp',
           category: 'pasta'
         },
         {
@@ -622,7 +622,7 @@ const Menu = () => {
           name: 'Pasta and Pesto',
           description: 'Fresh pasta with homemade basil pesto, pine nuts, and parmesan cheese.',
           price: '38',
-          image: '/img/all img/menus/pasta2.jpg',
+          image: '/img/all img/menus/pasta2.webp',
           category: 'pasta'
         },
         {
@@ -630,7 +630,7 @@ const Menu = () => {
           name: 'Pasta with Tomato Sauce',
           description: 'Classic pasta with our slow-cooked tomato sauce and fresh herbs.',
           price: '38',
-          image: '/img/all img/menus/pasta1.jpg',
+          image: '/img/all img/menus/pasta1.webp',
           category: 'pasta'
         },
       //Pasta
@@ -641,7 +641,7 @@ const Menu = () => {
           name: 'Cajun Chicken',
           description: 'Juicy chicken breast seasoned with bold Cajun spices and grilled to perfection.',
           price: '27',
-          image: '/img/all img/menus/c1.jpg',
+          image: '/img/all img/menus/c1.webp',
           category: 'chicken'
         },
         {
@@ -649,7 +649,7 @@ const Menu = () => {
           name: 'Saffron Chicken',
           description: 'Tender chicken marinated with precious saffron and Middle Eastern spices.',
           price: '27',
-          image: '/img/all img/menus/c2.jpg',
+          image: '/img/all img/menus/c2.webp',
           category: 'chicken'
         },
         {
@@ -657,7 +657,7 @@ const Menu = () => {
           name: 'Grilled Chicken with Pineapple',
           description: 'Grilled chicken served with caramelized pineapple for a sweet and savory combination.',
           price: '27',
-          image: '/img/all img/menus/c3.jpg',
+          image: '/img/all img/menus/c3.webp',
           category: 'chicken'
         },
         {
@@ -665,7 +665,7 @@ const Menu = () => {
           name: 'Chicken with Molokhia',
           description: 'Traditional Middle Eastern chicken stew with jute leaves and garlic.',
           price: '27',
-          image: '/img/all img/menus/c4.jpg',
+          image: '/img/all img/menus/c4.webp',
           category: 'chicken'
         },
         {
@@ -673,7 +673,7 @@ const Menu = () => {
           name: 'Grilled Shish Tawook',
           description: 'Marinated chicken cubes grilled on skewers with garlic sauce.',
           price: '27',
-          image: '/img/all img/menus/c5.jpg',
+          image: '/img/all img/menus/c5.webp',
           category: 'chicken'
         },
         {
@@ -681,7 +681,7 @@ const Menu = () => {
           name: 'Chicken with Lemon and Thyme',
           description: 'Zesty lemon and aromatic thyme infused grilled chicken.',
           price: '27',
-          image: '/img/all img/menus/c6.jpg',
+          image: '/img/all img/menus/c6.webp',
           category: 'chicken'
         },
         {
@@ -689,7 +689,7 @@ const Menu = () => {
           name: 'Tandoori Chicken',
           description: 'Classic Indian-style yogurt-marinated chicken with vibrant spices.',
           price: '27',
-          image: '/img/all img/menus/c7.jpg',
+          image: '/img/all img/menus/c7.webp',
           category: 'chicken'
         },
         {
@@ -697,7 +697,7 @@ const Menu = () => {
           name: 'Chicken Pollo',
           description: 'Italian-inspired chicken dish with herbs and white wine sauce.',
           price: '27',
-          image: '/img/all img/menus/c8.jpg',
+          image: '/img/all img/menus/c8.webp',
           category: 'chicken'
         },
         {
@@ -705,7 +705,7 @@ const Menu = () => {
           name: 'Chicken Dimaria',
           description: 'Creamy chicken preparation with mushrooms and special Dimaria sauce.',
           price: '27',
-          image: '/img/all img/menus/c9.jpg',
+          image: '/img/all img/menus/c9.webp',
           category: 'chicken'
         },
         {
@@ -713,7 +713,7 @@ const Menu = () => {
           name: 'Chicken Volcano (Spicy)',
           description: 'Fiery hot chicken with chili peppers and special volcano sauce.',
           price: '27',
-          image: '/img/all img/menus/c10.jpg',
+          image: '/img/all img/menus/c10.webp',
           category: 'chicken'
         },
         {
@@ -721,7 +721,7 @@ const Menu = () => {
           name: 'Chicken Mexican Style',
           description: 'Chicken cooked with bell peppers, onions, and Mexican spices.',
           price: '27',
-          image: '/img/all img/menus/c11.jpg',
+          image: '/img/all img/menus/c11.webp',
           category: 'chicken'
         },
         {
@@ -729,7 +729,7 @@ const Menu = () => {
           name: 'Grilled Chicken',
           description: 'Simple yet delicious perfectly grilled chicken breast with herbs.',
           price: '27',
-          image: '/img/all img/menus/c12.jpg',
+          image: '/img/all img/menus/c12.webp',
           category: 'chicken'
         },
         {
@@ -737,7 +737,7 @@ const Menu = () => {
           name: 'Chicken with Broccoli',
           description: 'Healthy chicken stir-fry with fresh broccoli in light sauce.',
           price: '27',
-          image: '/img/all img/menus/c13.jpg',
+          image: '/img/all img/menus/c13.webp',
           category: 'chicken'
         },
         {
@@ -745,7 +745,7 @@ const Menu = () => {
           name: 'Chicken Mastromella',
           description: 'Signature chicken dish with Mastromella herbs and cream sauce.',
           price: '27',
-          image: '/img/all img/menus/c14.jpg',
+          image: '/img/all img/menus/c14.webp',
           category: 'chicken'
         },
         {
@@ -753,7 +753,7 @@ const Menu = () => {
           name: 'Chicken Fajita',
           description: 'Sizzling chicken strips with peppers and onions, served with tortillas.',
           price: '27',
-          image: '/img/all img/menus/c15.jpg',
+          image: '/img/all img/menus/c15.webp',
           category: 'chicken'
         },
         {
@@ -761,7 +761,7 @@ const Menu = () => {
           name: 'Pesto Chicken',
           description: 'Grilled chicken topped with fresh homemade pesto sauce.',
           price: '27',
-          image: '/img/all img/menus/c16.jpg',
+          image: '/img/all img/menus/c16.webp',
           category: 'chicken'
         },
         {
@@ -769,7 +769,7 @@ const Menu = () => {
           name: 'Sumac Chicken',
           description: 'Middle Eastern chicken marinated with tangy sumac and olive oil.',
           price: '27',
-          image: '/img/all img/menus/c17.jpg',
+          image: '/img/all img/menus/c17.webp',
           category: 'chicken'
         },
         {
@@ -777,7 +777,7 @@ const Menu = () => {
           name: 'Chicken and Mushroom',
           description: 'Creamy chicken and mushroom combination with herbs.',
           price: '27',
-          image: '/img/all img/menus/c18.jpg',
+          image: '/img/all img/menus/c18.webp',
           category: 'chicken'
         },
       //Chicken
@@ -788,7 +788,7 @@ const Menu = () => {
     name: 'Classic Burger',
     description: 'Juicy beef patty with lettuce, tomato, onion, and our special sauce in a toasted bun.',
     price: '31',
-    image: '/img/all img/menus/bb1.jpg',
+    image: '/img/all img/menus/bb1.webp',
     category: 'burger'
   },
   {
@@ -796,7 +796,7 @@ const Menu = () => {
     name: 'Cheeseburger',
     description: 'Our classic burger topped with melted American cheese for extra richness.',
     price: '32',
-    image: '/img/all img/menus/bb2.jpg',
+    image: '/img/all img/menus/bb2.webp',
     category: 'burger'
   },
   {
@@ -804,7 +804,7 @@ const Menu = () => {
     name: 'Chili Burger',
     description: 'Beef patty smothered in spicy chili con carne and melted cheese.',
     price: '32',
-    image: '/img/all img/menus/bb3.jpg',
+    image: '/img/all img/menus/bb3.webp',
     category: 'burger'
   },
   {
@@ -812,7 +812,7 @@ const Menu = () => {
     name: 'Mushroom Burger',
     description: 'Juicy burger topped with sautéed mushrooms and Swiss cheese.',
     price: '32',
-    image: '/img/all img/menus/bb4.jpg',
+    image: '/img/all img/menus/bb4.webp',
     category: 'burger'
   },
   {
@@ -820,7 +820,7 @@ const Menu = () => {
     name: 'Barbecue Burger',
     description: 'Grilled beef patty glazed with smoky BBQ sauce and crispy onions.',
     price: '31',
-    image: '/img/all img/menus/bb5.jpg',
+    image: '/img/all img/menus/bb5.webp',
     category: 'burger'
   },
   {
@@ -828,7 +828,7 @@ const Menu = () => {
     name: 'Classic Chicken',
     description: 'Crispy chicken fillet with lettuce and mayo in a soft brioche bun.',
     price: '28',
-    image: '/img/all img/menus/bb6.jpg',
+    image: '/img/all img/menus/bb6.webp',
     category: 'burger'
   },
   {
@@ -836,7 +836,7 @@ const Menu = () => {
     name: 'Chicken Ranch',
     description: 'Crispy chicken with cool ranch dressing, lettuce, and tomato.',
     price: '28',
-    image: '/img/all img/menus/bb7.jpg',
+    image: '/img/all img/menus/bb7.webp',
     category: 'burger'
   },
   {
@@ -844,7 +844,7 @@ const Menu = () => {
     name: 'Chicken with Cheese',
     description: 'Breaded chicken fillet topped with melted cheese and special sauce.',
     price: '28',
-    image: '/img/all img/menus/bb8.jpg',
+    image: '/img/all img/menus/bb8.webp',
     category: 'burger'
   },
   {
@@ -852,7 +852,7 @@ const Menu = () => {
     name: 'Greek Chicken',
     description: 'Grilled chicken with tzatziki, feta, and Mediterranean vegetables in pita bread.',
     price: '27',
-    image: '/img/all img/menus/bb9.jpg',
+    image: '/img/all img/menus/bb9.webp',
     category: 'burger'
   },
   //Beef Burger
@@ -863,7 +863,7 @@ const Menu = () => {
     name: 'Balsamic Chicken',
     description: 'Grilled chicken with balsamic glaze, arugula, and sun-dried tomatoes in ciabatta.',
     price: '24',
-    image: '/img/all img/menus/sw1.jpg',
+    image: '/img/all img/menus/sw1.webp',
     category: 'sandwich'
   },
   {
@@ -871,7 +871,7 @@ const Menu = () => {
     name: 'Chicken Shawarma',
     description: 'Marinated chicken shawarma with garlic sauce and pickles in Arabic bread.',
     price: '24',
-    image: '/img/all img/menus/sw2.jpg',
+    image: '/img/all img/menus/sw2.webp',
     category: 'sandwich'
   },
   {
@@ -879,7 +879,7 @@ const Menu = () => {
     name: 'Chicken Fajita Sandwich',
     description: 'Spicy chicken fajita mix with peppers and onions in toasted tortilla wrap.',
     price: '24',
-    image: '/img/all img/menus/sw3.jpg',
+    image: '/img/all img/menus/sw3.webp',
     category: 'sandwich'
   },
   {
@@ -887,7 +887,7 @@ const Menu = () => {
     name: 'Chicken Pesto Sandwich',
     description: 'Grilled chicken with fresh pesto, mozzarella, and tomato in focaccia bread.',
     price: '24',
-    image: '/img/all img/menus/sw4.jpg',
+    image: '/img/all img/menus/sw4.webp',
     category: 'sandwich'
   },
   //Sandwich
@@ -898,7 +898,7 @@ const Menu = () => {
     name: 'Cheese Steak Sandwich',
     description: 'Juicy sliced beef steak with melted cheese and grilled onions in a toasted roll.',
     price: '33',
-    image: '/img/all img/menus/meat1.jpg',
+    image: '/img/all img/menus/meat1.webp',
     category: 'meat'
   },
   {
@@ -906,7 +906,7 @@ const Menu = () => {
     name: 'Beef Fajita',
     description: 'Sizzling strips of beef with bell peppers and onions, served with tortillas.',
     price: '31',
-    image: '/img/all img/menus/meat2.jpg',
+    image: '/img/all img/menus/meat2.webp',
     category: 'meat'
   },
   {
@@ -914,7 +914,7 @@ const Menu = () => {
     name: 'Beef Shawarma',
     description: 'Tender marinated beef shawarma with garlic sauce and pickles in Arabic bread.',
     price: '31',
-    image: '/img/all img/menus/meat3.jpg',
+    image: '/img/all img/menus/meat3.webp',
     category: 'meat'
   },
   {
@@ -922,7 +922,7 @@ const Menu = () => {
     name: 'Beef with Mushroom',
     description: 'Sautéed beef strips with creamy mushroom sauce.',
     price: '31',
-    image: '/img/all img/menus/meat4.jpg',
+    image: '/img/all img/menus/meat4.webp',
     category: 'meat'
   },
   {
@@ -930,7 +930,7 @@ const Menu = () => {
     name: 'Mexican Beef',
     description: 'Spicy beef preparation with Mexican spices, beans, and cheese.',
     price: '33',
-    image: '/img/all img/menus/meat5.jpg',
+    image: '/img/all img/menus/meat5.webp',
     category: 'meat'
   },
 
@@ -940,7 +940,7 @@ const Menu = () => {
     name: 'Shrimp Pizza',
     description: 'Wood-fired pizza topped with fresh shrimp, garlic, and parsley.',
     price: '30',
-    image: '/img/all img/menus/piz1.jpg',
+    image: '/img/all img/menus/piz1.webp',
     category: 'pizza'
   },
   {
@@ -948,7 +948,7 @@ const Menu = () => {
     name: 'Four Seasons Pizza',
     description: 'Quartered pizza with four different toppings representing the seasons.',
     price: '28',
-    image: '/img/all img/menus/piz2.jpg',
+    image: '/img/all img/menus/piz2.webp',
     category: 'pizza'
   },
   {
@@ -956,7 +956,7 @@ const Menu = () => {
     name: 'Pepperoni Pizza',
     description: 'Classic pizza with generous portions of spicy pepperoni and mozzarella.',
     price: '25',
-    image: '/img/all img/menus/piz3.jpg',
+    image: '/img/all img/menus/piz3.webp',
     category: 'pizza'
   },
   {
@@ -964,7 +964,7 @@ const Menu = () => {
     name: 'Ground Beef Pizza',
     description: 'Savory pizza topped with seasoned ground beef and vegetables.',
     price: '25',
-    image: '/img/all img/menus/piz4.jpg',
+    image: '/img/all img/menus/piz4.webp',
     category: 'pizza'
   },
   {
@@ -972,7 +972,7 @@ const Menu = () => {
     name: 'Ranch Pizza',
     description: 'Creamy ranch base with chicken, bacon, and mozzarella.',
     price: '27',
-    image: '/img/all img/menus/piz5.jpg',
+    image: '/img/all img/menus/piz5.webp',
     category: 'pizza'
   },
   {
@@ -980,7 +980,7 @@ const Menu = () => {
     name: 'Shawarma Pizza',
     description: 'Arabic-inspired pizza topped with shawarma meat and garlic sauce.',
     price: '27',
-    image: '/img/all img/menus/piz6.jpg',
+    image: '/img/all img/menus/piz6.webp',
     category: 'pizza'
   },
   {
@@ -988,7 +988,7 @@ const Menu = () => {
     name: 'Chicken with Mushrooms Pizza',
     description: 'Grilled chicken and sautéed mushrooms on a creamy white sauce base.',
     price: '27',
-    image: '/img/all img/menus/piz7.jpg',
+    image: '/img/all img/menus/piz7.webp',
     category: 'pizza'
   },
   {
@@ -996,7 +996,7 @@ const Menu = () => {
     name: 'Chicken with Pesto Pizza',
     description: 'Wood-fired pizza with pesto sauce, chicken, and sun-dried tomatoes.',
     price: '27',
-    image: '/img/all img/menus/piz8.jpg',
+    image: '/img/all img/menus/piz8.webp',
     category: 'pizza'
   },
   {
@@ -1004,7 +1004,7 @@ const Menu = () => {
     name: 'Barbecue Pizza',
     description: 'Smoky BBQ sauce base with chicken, red onions, and cilantro.',
     price: '27',
-    image: '/img/all img/menus/piz9.jpg',
+    image: '/img/all img/menus/piz9.webp',
     category: 'pizza'
   },
   {
@@ -1012,7 +1012,7 @@ const Menu = () => {
     name: 'Vegetables Pizza',
     description: 'Garden fresh pizza with seasonal vegetables and light cheese.',
     price: '21',
-    image: '/img/all img/menus/piz10.jpg',
+    image: '/img/all img/menus/piz10.webp',
     category: 'pizza'
   },
   {
@@ -1020,7 +1020,7 @@ const Menu = () => {
     name: 'Margarita Pizza',
     description: 'Classic Neapolitan pizza with tomato sauce, fresh mozzarella, and basil.',
     price: '21',
-    image: '/img/all img/menus/piz11.jpg',
+    image: '/img/all img/menus/piz11.webp',
     category: 'pizza'
   },
   {
@@ -1028,7 +1028,7 @@ const Menu = () => {
     name: 'Tuna Pizza',
     description: 'Unique pizza topped with premium tuna, onions, and capers.',
     price: '23',
-    image: '/img/all img/menus/pi12.jpg',
+    image: '/img/all img/menus/pi12.webp',
     category: 'pizza'
   },
 
@@ -1038,7 +1038,7 @@ const Menu = () => {
     name: 'Roasted Potato Wedges',
     description: 'Crispy golden potato wedges seasoned with herbs and spices.',
     price: '15', // Assuming standard price for sides
-    image: '/img/all img/menus/sd1.jpg',
+    image: '/img/all img/menus/sd1.webp',
     category: 'sides'
   },
   {
@@ -1046,7 +1046,7 @@ const Menu = () => {
     name: 'Mashed Potatoes',
     description: 'Creamy whipped potatoes with butter and a touch of garlic.',
     price: '15',
-    image: '/img/all img/menus/sd2.jpg',
+    image: '/img/all img/menus/sd2.webp',
     category: 'sides'
   },
   {
@@ -1054,7 +1054,7 @@ const Menu = () => {
     name: 'Sweet Potatoes',
     description: 'Oven-roasted sweet potato wedges with caramelized edges.',
     price: '15',
-    image: '/img/all img/menus/sd3.jpg',
+    image: '/img/all img/menus/sd3.webp',
     category: 'sides'
   },
   {
@@ -1062,7 +1062,7 @@ const Menu = () => {
     name: 'Sautéed Vegetables',
     description: 'Seasonal vegetables lightly sautéed in olive oil and herbs.',
     price: '15',
-    image: '/img/all img/menus/sd4.jpg',
+    image: '/img/all img/menus/sd4.webp',
     category: 'sides'
   },
   {
@@ -1070,7 +1070,7 @@ const Menu = () => {
     name: 'Broccoli',
     description: 'Fresh broccoli florets steamed to perfection with lemon zest.',
     price: '15',
-    image: '/img/all img/menus/sd5.jpg',
+    image: '/img/all img/menus/sd5.webp',
     category: 'sides'
   },
   {
@@ -1078,7 +1078,7 @@ const Menu = () => {
     name: 'Corn',
     description: 'Sweet corn kernels lightly buttered and seasoned.',
     price: '15',
-    image: '/img/all img/menus/sd6.jpg',
+    image: '/img/all img/menus/sd6.webp',
     category: 'sides'
   },
 
@@ -1088,7 +1088,7 @@ const Menu = () => {
     name: 'Tiramisu',
     description: 'Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.',
     price: '19',
-    image: '/img/all img/menus/d1.jpg',
+    image: '/img/all img/menus/d1.webp',
     category: 'desserts'
   },
   {
@@ -1096,7 +1096,7 @@ const Menu = () => {
     name: 'Date Cake',
     description: 'Moist Middle Eastern date cake with caramel-like sweetness.',
     price: '10',
-    image: '/img/all img/menus/d2.jpg',
+    image: '/img/all img/menus/d2.webp',
     category: 'desserts'
   },
   {
@@ -1104,7 +1104,7 @@ const Menu = () => {
     name: 'Apple & Cinnamon Cake',
     description: 'Warm spiced apple cake with cinnamon glaze.',
     price: '18',
-    image: '/img/all img/menus/d3.jpg',
+    image: '/img/all img/menus/d3.webp',
     category: 'desserts'
   },
   {
@@ -1112,7 +1112,7 @@ const Menu = () => {
     name: 'Oat & Banana Cake',
     description: 'Healthy banana bread made with oats and honey.',
     price: '12',
-    image: '/img/all img/menus/d4.jpg',
+    image: '/img/all img/menus/d4.webp',
     category: 'desserts'
   },
   {
@@ -1120,7 +1120,7 @@ const Menu = () => {
     name: 'Revalo Cake',
     description: 'Signature layered cake with cream and fruit filling.',
     price: '19',
-    image: '/img/all img/menus/d5.jpg',
+    image: '/img/all img/menus/d5.webp',
     category: 'desserts'
   },
   {
@@ -1128,7 +1128,7 @@ const Menu = () => {
     name: 'Fruit Granola',
     description: 'Crunchy granola mix with dried fruits and nuts.',
     price: '18',
-    image: '/img/all img/menus/d6.jpg',
+    image: '/img/all img/menus/d6.webp',
     category: 'desserts'
   },
   {
@@ -1136,7 +1136,7 @@ const Menu = () => {
     name: 'Honey & Nut Granola',
     description: 'Homemade granola clusters with honey glaze and mixed nuts.',
     price: '18',
-    image: '/img/all img/menus/d7.jpg',
+    image: '/img/all img/menus/d7.webp',
     category: 'desserts'
   },
   {
@@ -1144,7 +1144,7 @@ const Menu = () => {
     name: 'Chia Seeds & Oats',
     description: 'Power breakfast bowl with chia seeds, oats, and almond milk.',
     price: '12',
-    image: '/img/all img/menus/d8.jpg',
+    image: '/img/all img/menus/d8.webp',
     category: 'desserts'
   },
   {
@@ -1152,7 +1152,7 @@ const Menu = () => {
     name: 'Greek Yogurt & Berry Granola',
     description: 'Creamy Greek yogurt topped with fresh berries and granola.',
     price: '18',
-    image: '/img/all img/menus/d9.jpg',
+    image: '/img/all img/menus/d9.webp',
     category: 'desserts'
   },
   {
@@ -1160,7 +1160,7 @@ const Menu = () => {
     name: 'Sunflower Seeds, Sesame & Raisin Granola',
     description: 'Nutty granola blend with seeds and sweet raisins.',
     price: '19',
-    image: '/img/all img/menus/d10.jpg',
+    image: '/img/all img/menus/d10.webp',
     category: 'desserts'
   },
 
@@ -1170,7 +1170,7 @@ const Menu = () => {
     name: 'Pineapple & Peach Healthy Pie',
     description: 'Sugar-free pie with tropical pineapple and peach filling.',
     price: '11',
-    image: '/img/all img/menus/hp1.jpg',
+    image: '/img/all img/menus/hp1.webp',
     category: 'healthy'
   },
   {
@@ -1178,7 +1178,7 @@ const Menu = () => {
     name: 'Apple & Pineapple Healthy Pie',
     description: 'Double fruit pie with tart apples and sweet pineapple.',
     price: '11',
-    image: '/img/all img/menus/hp2.jpg',
+    image: '/img/all img/menus/hp2.webp',
     category: 'healthy'
   },
   {
@@ -1186,7 +1186,7 @@ const Menu = () => {
     name: 'Kiwi & Mango Healthy Pie',
     description: 'Exotic fruit combination in a whole wheat crust.',
     price: '11',
-    image: '/img/all img/menus/hp3.jpg',
+    image: '/img/all img/menus/hp3.webp',
     category: 'healthy'
   },
   {
@@ -1194,7 +1194,7 @@ const Menu = () => {
     name: 'Orange, Ginger, and Pineapple Healthy Pie',
     description: 'Zesty citrus pie with warming ginger notes.',
     price: '11',
-    image: '/img/all img/menus/hp4.png',
+    image: '/img/all img/menus/hp4.webp',
     category: 'healthy'
   },
   {
@@ -1202,7 +1202,7 @@ const Menu = () => {
     name: 'Beetroot and Apple Healthy Pie',
     description: 'Vibrant pink pie with earthy beetroot and sweet apples.',
     price: '11',
-    image: '/img/all img/menus/hp5.jpg',
+    image: '/img/all img/menus/hp5.webp',
     category: 'healthy'
   },
   {
@@ -1210,7 +1210,7 @@ const Menu = () => {
     name: 'Carrot, Orange, and Ginger Healthy Pie',
     description: 'Vitamin-packed pie with winter spice flavors.',
     price: '11',
-    image: '/img/all img/menus/hp6.jpg',
+    image: '/img/all img/menus/hp6.webp',
     category: 'healthy'
   },
   {
@@ -1218,7 +1218,7 @@ const Menu = () => {
     name: 'Orange with Cranberry Healthy Pie',
     description: 'Tart cranberries balanced with sweet orange in a flaxseed crust.',
     price: '11',
-    image: '/img/all img/menus/hp7.jpg',
+    image: '/img/all img/menus/hp7.webp',
     category: 'healthy'
   },
 
