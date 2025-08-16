@@ -14,6 +14,8 @@ const Cart = () => {
   const [isSending, setIsSending] = useState(false);
   const [checkoutDialogOpen, setCheckoutDialogOpen] = useState(false);
   const [customerName, setCustomerName] = useState('');
+  const [customerNumber, setCustomerNumber] = useState('');
+  const [customerLocation, setCustomerLocation] = useState('');
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -26,6 +28,7 @@ const Cart = () => {
       });
       return;
     }
+    
     toast({
       title: "Subscription Plan Created!",
       description: "Your custom subscription plan has been created successfully",
@@ -36,8 +39,6 @@ const Cart = () => {
       navigate('/subscription');
     }, 2000);
   };
-  
- 
 
   const openCheckoutDialog = () => {
     if (items.length === 0) {
@@ -52,48 +53,73 @@ const Cart = () => {
   };
 
   const sendWhatsAppOrder = async () => {
-    setIsSending(true);
-    setCheckoutDialogOpen(false);
+  // Validate all required fields
+  if (!customerName || !customerNumber || !customerLocation) {
+    toast({
+      title: "Missing information",
+      description: "Please fill in all required fields",
+      variant: "destructive"
+    });
+    return;
+  }
 
-    try {
-      const fixedPhoneNumber = "966 133479961";
-      const orderNumber = `#${Math.floor(1000 + Math.random() * 9000)}`;
-      
-      // Prepare order details
-      const orderDetails = items.map(
-        item => `• ${item.name} x${item.quantity} - ${(parseFloat(item.price.replace(' SAR', '')) * item.quantity).toFixed(2)} SAR`
-      ).join('\n');
+  setIsSending(true);
+  setCheckoutDialogOpen(false);
 
-      // Prepare WhatsApp message
-      const whatsappMessage = 
-        `*Customer Name:* ${customerName || 'Not provided'}\n\n` +
-        `*Order Details:*\n${orderDetails}\n\n` +
-        `*Total:* ${total.toFixed(2)} SAR`;
-      
-      // Create WhatsApp link
-      const whatsappUrl = `https://wa.me/${fixedPhoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-      
-      // Open WhatsApp in new tab
-      window.open(whatsappUrl, '_blank');
+  try {
+    const fixedPhoneNumber = "+966133479961";
+    const orderNumber = `#${Math.floor(1000 + Math.random() * 9000)}`;
+    
+    // Prepare order details
+    const orderDetails = items.map(
+      item => `• ${item.name} x${item.quantity} - ${(parseFloat(item.price.replace(' SAR', '')) * item.quantity).toFixed(2)} SAR`
+    ).join('\n');
 
-      toast({
-        title: "WhatsApp Opened!",
-        description: "Please confirm your order in WhatsApp",
-      });
-      
-      // Clear the customer name for next order
-      setCustomerName('');
-      
-    } catch (error) {
-      toast({
-        title: "Failed to open WhatsApp",
-        description: "Please try again later",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSending(false);
-    }
-  };
+    // Prepare WhatsApp message
+    const whatsappMessage = 
+      `*Customer Name:* ${customerName}\n\n` +
+      `*Number:* ${customerNumber}\n\n` +
+      `*Location:* ${customerLocation}\n\n` +
+      `*Order Details:*\n${orderDetails}\n\n` +
+      `*Total:* ${total.toFixed(2)} SAR`;
+    
+    // Create WhatsApp link
+    const whatsappUrl = `https://wa.me/${fixedPhoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank');
+
+    toast({
+      title: "WhatsApp Opened!",
+      description: "Please confirm your order in WhatsApp",
+    });
+    
+    // Clear the form for next order
+    setCustomerName('');
+    setCustomerNumber('');
+    setCustomerLocation('');
+    
+  } catch (error) {
+    toast({
+      title: "Failed to open WhatsApp",
+      description: "Please try again later",
+      variant: "destructive"
+    });
+  } finally {
+    setIsSending(false);
+  }
+};
+
+// In the DialogFooter button, add disabled condition:
+<DialogFooter>
+  <Button 
+    onClick={sendWhatsAppOrder}
+    disabled={isSending || !customerName || !customerNumber || !customerLocation}
+    className="bg-green-600 hover:bg-green-700"
+  >
+    {isSending ? 'Opening WhatsApp...' : 'Confirm & Proceed to WhatsApp'}
+  </Button>
+</DialogFooter>
 
   if (items.length === 0) {
     return (
@@ -133,13 +159,11 @@ const Cart = () => {
           {/* Cart Items */}
           <div className="w-full lg:w-2/3 space-y-3 sm:space-y-4">
             {items.map((item) => (
-             
               <Card key={item.id} className="overflow-hidden">
                 <CardContent className="p-3 sm:p-4">
                   <div className="flex items-start sm:items-center gap-3 sm:gap-4 flex-col sm:flex-row">
                     <img
                       src={item.image}
-                      
                       alt={item.name}
                       className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded-lg"
                     />
@@ -258,7 +282,7 @@ const Cart = () => {
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid gap-4 py-4">
+          <div className="grid gap-4 py-2">
             <div className="grid grid-cols-4 items-center gap-4">
               <label htmlFor="name" className="text-right">
                 Your Name
@@ -268,7 +292,27 @@ const Cart = () => {
                 value={customerName}
                 onChange={(e) => setCustomerName(e.target.value)}
                 placeholder="Enter your name"
-                className="col-span-3"
+                className="col-span-3" required
+              />
+              <label htmlFor="number" className="text-right">
+                Phone No
+              </label>
+              <Input
+                id="number"
+                value={customerNumber}
+                onChange={(e) => setCustomerNumber(e.target.value)}
+                placeholder="Enter phone number"
+                className="col-span-3" required
+              />
+              <label htmlFor="location" className="text-right">
+                Location
+              </label>
+              <Input
+                id="location"
+                value={customerLocation}
+                onChange={(e) => setCustomerLocation(e.target.value)}
+                placeholder="Location"
+                className="col-span-3" required
               />
             </div>
 
