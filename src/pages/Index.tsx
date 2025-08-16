@@ -271,30 +271,35 @@ const [src, setSrc] = useState(
               </div>
             </div>
             <div className="relative">
-             <div className="relative z-10 ">
-      <img
-        alt="Healthy meal bowl"
-        src={src}
-        className="w-full object-cover rounded-2xl drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
-        style={{
-          animation: 'spin 30s linear infinite',
-          transformOrigin: 'center',
-        }}
-      />
+  {/* Main Image */}
+  <div className="relative z-10">
+    <img
+      alt="Healthy meal bowl"
+      src={src}
+      className="w-full max-w-[500px] md:max-w-none mx-auto object-cover rounded-xl md:rounded-2xl drop-shadow-[0_5px_15px_rgba(0,0,0,0.3)] md:drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
+      style={{
+        animation: 'spin 30s linear infinite',
+        transformOrigin: 'center',
+      }}
+    />
+  </div>
+
+  {/* Kcal Badge - Top Right */}
+  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5 bg-white p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl shadow-md md:shadow-lg">
+    <div className="flex items-center space-x-1 sm:space-x-2">
+      <Heart className="h-4 w-4 sm:h-5 sm:w-5 text-red-500" />
+      <span className="text-xs sm:text-sm font-semibold">400 kcal</span>
     </div>
-              <div className="absolute top-4 right-5 bg-white p-4 rounded-xl shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <Heart className="h-5 w-5 text-red-500" />
-                  <span className="text-sm font-semibold">400 kcal</span>
-                </div>
-              </div>
-              <div className="absolute bottom-4 left-4 bg-white p-4 rounded-xl shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <Leaf className="h-5 w-5 text-green-500" />
-                  <span className="text-sm font-semibold">Organic</span>
-                </div>
-              </div>
-            </div>
+  </div>
+
+  {/* Organic Badge - Bottom Left */}
+  <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 md:bottom-4 md:left-4 lg:bottom-5 lg:left-5 bg-white p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl shadow-md md:shadow-lg">
+    <div className="flex items-center space-x-1 sm:space-x-2">
+      <Leaf className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
+      <span className="text-xs sm:text-sm font-semibold">Organic</span>
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </section>

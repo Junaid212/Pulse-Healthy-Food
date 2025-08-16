@@ -149,11 +149,25 @@ const Navbar = () => {
                 {t('nav.menu')}
               </Link>
               <Link
+                to="/about"
+                className="block px-3 py-2 text-gray-700 hover:text-green-600"
+                onClick={() => setIsOpen(false)}
+              >
+                About Us
+              </Link>
+              <Link
                 to="/subscription"
                 className="block px-3 py-2 text-gray-700 hover:text-green-600"
                 onClick={() => setIsOpen(false)}
               >
                 {t('nav.subscription')}
+              </Link>
+              <Link
+                to="/contact"
+                className="block px-3 py-2 text-gray-700 hover:text-green-600"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact Us
               </Link>
               
               <div className="border-t pt-2">
