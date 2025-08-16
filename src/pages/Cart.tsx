@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { useCart } from '@/contexts/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { Plus, Minus, Trash2, ShoppingCart, ArrowLeft } from 'lucide-react';
@@ -12,10 +12,11 @@ const Cart = () => {
   const { items, updateQuantity, removeFromCart, clearCart, total } = useCart();
   const [isCreatingSubscription, setIsCreatingSubscription] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [checkoutDialogOpen, setCheckoutDialogOpen] = useState(false);
+  const [customerName, setCustomerName] = useState('');
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // Handle subscription creation
   const handleCreateSubscription = () => {
     if (items.length === 0) {
       toast({
@@ -25,7 +26,6 @@ const Cart = () => {
       });
       return;
     }
-    
     toast({
       title: "Subscription Plan Created!",
       description: "Your custom subscription plan has been created successfully",
@@ -36,19 +36,10 @@ const Cart = () => {
       navigate('/subscription');
     }, 2000);
   };
+  
+ 
 
-  // Generate order details text
-  const generateOrderDetails = () => {
-    let details = "Order Details:\n";
-    items.forEach(item => {
-      details += `- ${item.name} x${item.quantity} = ${parseFloat(item.price.replace(' SAR', '')) * item.quantity} SAR\n`;
-    });
-    details += `\nTotal: ${total.toFixed(2)} SAR`;
-    return details;
-  };
-
-  // Send order via WhatsApp
-  const sendWhatsAppOrder = async () => {
+  const openCheckoutDialog = () => {
     if (items.length === 0) {
       toast({
         title: "Cart is empty",
@@ -57,26 +48,30 @@ const Cart = () => {
       });
       return;
     }
-    
+    setCheckoutDialogOpen(true);
+  };
+
+  const sendWhatsAppOrder = async () => {
     setIsSending(true);
+    setCheckoutDialogOpen(false);
 
     try {
-      // Fixed WhatsApp number
-      const fixedPhoneNumber = "+966 133479961 ";
-      
-      // Create order number
+      const fixedPhoneNumber = "966 133479961";
       const orderNumber = `#${Math.floor(1000 + Math.random() * 9000)}`;
       
-      // Prepare order items text
-      const orderItemsText = items.map(
-        item => `• ${item.name} x${item.quantity} - ${item.price}`
+      // Prepare order details
+      const orderDetails = items.map(
+        item => `• ${item.name} x${item.quantity} - ${(parseFloat(item.price.replace(' SAR', '')) * item.quantity).toFixed(2)} SAR`
       ).join('\n');
 
       // Prepare WhatsApp message
-      const whatsappMessage = `New Order ${orderNumber}\n\n${orderItemsText}\n\nTotal: ${total.toFixed(2)} SAR`;
+      const whatsappMessage = 
+        `*Customer Name:* ${customerName || 'Not provided'}\n\n` +
+        `*Order Details:*\n${orderDetails}\n\n` +
+        `*Total:* ${total.toFixed(2)} SAR`;
       
       // Create WhatsApp link
-      const whatsappUrl = `https://wa.me/${fixedPhoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
+      const whatsappUrl = `https://wa.me/${fixedPhoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
       
       // Open WhatsApp in new tab
       window.open(whatsappUrl, '_blank');
@@ -85,6 +80,9 @@ const Cart = () => {
         title: "WhatsApp Opened!",
         description: "Please confirm your order in WhatsApp",
       });
+      
+      // Clear the customer name for next order
+      setCustomerName('');
       
     } catch (error) {
       toast({
@@ -97,7 +95,6 @@ const Cart = () => {
     }
   };
 
-  // Empty cart state
   if (items.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50 py-8">
@@ -133,14 +130,16 @@ const Cart = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Cart Items - Full width on mobile, 2/3 on desktop */}
+          {/* Cart Items */}
           <div className="w-full lg:w-2/3 space-y-3 sm:space-y-4">
             {items.map((item) => (
+             
               <Card key={item.id} className="overflow-hidden">
                 <CardContent className="p-3 sm:p-4">
                   <div className="flex items-start sm:items-center gap-3 sm:gap-4 flex-col sm:flex-row">
                     <img
                       src={item.image}
+                      
                       alt={item.name}
                       className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded-lg"
                     />
@@ -194,7 +193,7 @@ const Cart = () => {
             ))}
           </div>
 
-          {/* Order Summary - Full width on mobile, 1/3 on desktop */}
+          {/* Order Summary */}
           <div className="w-full lg:w-1/3">
             <Card className="sticky top-20 sm:top-24">
               <CardContent className="p-4 sm:p-6">
@@ -221,10 +220,9 @@ const Cart = () => {
                 <div className="space-y-2 sm:space-y-3">
                   <Button 
                     className="w-full bg-green-600 hover:bg-green-700 text-sm sm:text-base"
-                    onClick={sendWhatsAppOrder}
-                    disabled={isSending}
+                    onClick={openCheckoutDialog}
                   >
-                    {isSending ? 'Opening WhatsApp...' : 'Proceed to Checkout'}
+                    Proceed to Checkout
                   </Button>
                   
                   <Button
@@ -249,6 +247,61 @@ const Cart = () => {
           </div>
         </div>
       </div>
+
+      {/* Checkout Dialog */}
+      <Dialog open={checkoutDialogOpen} onOpenChange={setCheckoutDialogOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Confirm Your Order</DialogTitle>
+            <DialogDescription>
+              Please enter your name and review your order before proceeding to WhatsApp.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <label htmlFor="name" className="text-right">
+                Your Name
+              </label>
+              <Input
+                id="name"
+                value={customerName}
+                onChange={(e) => setCustomerName(e.target.value)}
+                placeholder="Enter your name"
+                className="col-span-3"
+              />
+            </div>
+
+            <div className="border rounded-lg p-4">
+              <h4 className="font-medium mb-2">Order Summary</h4>
+              <div className="space-y-2 max-h-40 overflow-y-auto">
+                {items.map((item) => (
+                  <div key={item.id} className="flex justify-between text-sm">
+                    <span className="truncate max-w-[180px]">
+                      {item.name} x{item.quantity}
+                    </span>
+                    <span>{parseFloat(item.price.replace(' SAR', '')) * item.quantity} SAR</span>
+                  </div>
+                ))}
+              </div>
+              <div className="border-t mt-2 pt-2 font-semibold flex justify-between">
+                <span>Total:</span>
+                <span>{total.toFixed(2)} SAR</span>
+              </div>
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button 
+              onClick={sendWhatsAppOrder}
+              disabled={isSending}
+              className="bg-green-600 hover:bg-green-700"
+            >
+              {isSending ? 'Opening WhatsApp...' : 'Confirm & Proceed to WhatsApp'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 };
